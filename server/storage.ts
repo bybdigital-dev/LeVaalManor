@@ -1,20 +1,21 @@
-import { type User, type InsertUser } from "@shared/schema";
+import { type User, type InsertUser, type BookingEnquiry, type InsertBookingEnquiry } from "@shared/schema";
 import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  createBookingEnquiry(enquiry: InsertBookingEnquiry): Promise<BookingEnquiry>;
+  getBookingEnquiries(): Promise<BookingEnquiry[]>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
+  private bookingEnquiries: Map<string, BookingEnquiry>;
 
   constructor() {
     this.users = new Map();
+    this.bookingEnquiries = new Map();
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -32,6 +33,23 @@ export class MemStorage implements IStorage {
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
+  }
+
+  async createBookingEnquiry(insertEnquiry: InsertBookingEnquiry): Promise<BookingEnquiry> {
+    const id = randomUUID();
+    const enquiry: BookingEnquiry = {
+      ...insertEnquiry,
+      id,
+      createdAt: new Date(),
+    };
+    this.bookingEnquiries.set(id, enquiry);
+    return enquiry;
+  }
+
+  async getBookingEnquiries(): Promise<BookingEnquiry[]> {
+    return Array.from(this.bookingEnquiries.values()).sort(
+      (a, b) => (b.createdAt?.getTime() || 0) - (a.createdAt?.getTime() || 0)
+    );
   }
 }
 
