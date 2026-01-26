@@ -1,0 +1,141 @@
+Build a clean, modern, and fully responsive ONE-PAGE website for a luxury short-term rental called Le Vaal Manor, located on Parys Golf Estate, South Africa.
+
+The website must behave as a single-page application (SPA):
+
+Only the Home section is visible on initial page load
+
+Other sections (About, Gallery, Amenities, Contact) are hidden by default
+
+When a user selects a menu item from the navigation (dropdown or menu), the corresponding section becomes visible and replaces the Home content without loading a new page
+
+Smooth transitions between sections (fade or slide)
+
+Website Purpose
+
+Showcase the property professionally, highlight amenities, build trust through guest reviews, and allow visitors to submit booking enquiries.
+
+Navigation & Header
+
+Sticky header that stays at the top while scrolling
+
+Property name “Le Vaal Manor” on the left
+
+Navigation on the right:
+
+Home
+
+About
+
+Gallery
+
+Amenities
+
+Contact
+
+On mobile, convert navigation into a dropdown / hamburger menu
+
+Clicking a menu item should show only that section’s content
+
+Sections (Single Page – Toggle Visibility)
+
+Home (Visible by Default)
+
+Hero section with property name and luxury tagline
+
+Background image or gradient overlay
+
+“Book Your Stay” button that switches to the Contact section
+
+Space for guest reviews/testimonials displayed as cards
+
+About
+
+Description of Le Vaal Manor
+
+Emphasise luxury, privacy, comfort, and the Parys Golf Estate location
+
+Gallery
+
+Image gallery of the house, rooms, outdoor spaces, and views
+
+Grid layout with subtle hover animations
+
+Amenities
+
+Card or icon-based list including:
+
+Secure parking
+
+Golf estate access
+
+Outdoor braai area
+
+Free Wi-Fi
+
+Self-catering kitchen
+
+Contact / Booking
+
+Booking enquiry form with the following fields:
+
+First name
+
+Last name
+
+Email address
+
+Phone number
+
+Start date
+
+End date
+
+Message
+
+Include a Google Map embed showing Parys Golf Estate
+
+Layout should place the form and map neatly side by side on desktop and stacked on mobile
+
+Footer
+
+Minimal and clean footer
+
+Include only:
+
+Facebook icon
+
+Instagram icon
+
+WhatsApp contact link
+
+No quick links or duplicated navigation
+
+Professional, understated design
+
+Design Requirements
+
+Fully responsive (desktop, tablet, mobile)
+
+Color palette:
+
+Navy blue (primary)
+
+Soft gold / off-yellow (accent)
+
+Clean modern typography
+
+Rounded buttons and cards
+
+Subtle hover effects on links, buttons, and images
+
+Smooth section transition animations
+
+Premium, elegant, uncluttered appearance
+
+Additional Features
+
+Scroll-to-top button
+
+Smooth transitions when switching sections
+
+High-end short-stay accommodation look and feel
