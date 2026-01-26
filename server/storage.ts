@@ -38,8 +38,14 @@ export class MemStorage implements IStorage {
   async createBookingEnquiry(insertEnquiry: InsertBookingEnquiry): Promise<BookingEnquiry> {
     const id = randomUUID();
     const enquiry: BookingEnquiry = {
-      ...insertEnquiry,
       id,
+      firstName: insertEnquiry.firstName,
+      lastName: insertEnquiry.lastName,
+      email: insertEnquiry.email,
+      phone: insertEnquiry.phone,
+      startDate: insertEnquiry.startDate,
+      endDate: insertEnquiry.endDate,
+      message: insertEnquiry.message ?? null,
       createdAt: new Date(),
     };
     this.bookingEnquiries.set(id, enquiry);
