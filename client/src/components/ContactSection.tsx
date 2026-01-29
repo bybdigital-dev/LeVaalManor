@@ -186,7 +186,7 @@ export default function ContactSection() {
                           <FormControl>
                             <Input
                               type="tel"
-                              placeholder="+27 XX XXX XXXX"
+                              placeholder="+27 12 345 6789"
                               data-testid="input-phone"
                               {...field}
                             />

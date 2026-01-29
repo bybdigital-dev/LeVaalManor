@@ -11,7 +11,7 @@ interface HomeSectionProps {
 const testimonials = [
   {
     id: 1,
-    name: "Sarah & James Mitchell",
+    name: "Martin & Beth Robinson",
     location: "Cape Town, SA",
     rating: 5,
     text: "An absolutely stunning property. The attention to detail, the views of the golf course, and the peaceful atmosphere made our anniversary trip unforgettable. We will definitely be returning.",
@@ -25,8 +25,8 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Emma Thompson",
-    location: "London, UK",
+    name: "Eric Jensen",
+    location: "Upington, SA",
     rating: 5,
     text: "A hidden gem on Parys Golf Estate. The manor offers the perfect blend of luxury and comfort. The hosts were incredibly accommodating and the property is immaculately maintained.",
   },
@@ -42,7 +42,7 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
             alt="Le Vaal Manor exterior"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
@@ -51,7 +51,7 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
               <p className="text-accent text-xs font-medium tracking-[0.25em] uppercase">
                 Parys Golf Estate, South Africa
               </p>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-white tracking-tight drop-shadow-lg" style={{ fontFamily: 'var(--font-script)' }}>
                 Le Vaal Manor
               </h1>
             </div>

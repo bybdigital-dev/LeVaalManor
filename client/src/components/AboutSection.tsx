@@ -64,6 +64,16 @@ const propertyFeatures = [
     title: "Security",
     description: "24-hour security within the prestigious Parys Golf Estate",
   },
+  {
+    icon: Sun,
+    title: "Air Conditioning",
+    description: "Each bedroom is equipped with modern air conditioning",
+  },
+  {
+    icon: Waves,
+    title: "Backup Water",
+    description: "Reliable backup water supply ensures uninterrupted comfort",
+  },
 ];
 
 const highlights = [

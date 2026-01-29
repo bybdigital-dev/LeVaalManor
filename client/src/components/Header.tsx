@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import type { Section } from "@/App";
+import logoImage from "@assets/images/logo.jpg";
 
 interface HeaderProps {
   activeSection: Section;
@@ -29,16 +30,26 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-16 md:h-20 items-center justify-between gap-4">
+
+          {/* Desktop / Logo + Name */}
           <button
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-2 group"
             data-testid="link-home-logo"
           >
-            <span className="text-lg md:text-xl font-bold tracking-tight text-primary">
+            {/* Round Logo */}
+            <img
+              src={logoImage}
+              alt="Le Vaal Manor Logo"
+              className="w-10 h-10 rounded-full object-cover transition-transform group-hover:scale-105"
+            />
+            {/* Property Name */}
+            <span className="text-2xl md:text-3xl text-primary" style={{ fontFamily: 'var(--font-script)' }}>
               Le Vaal Manor
             </span>
           </button>
 
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
             {navItems.map((item) => (
               <Button
@@ -57,6 +68,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
             ))}
           </nav>
 
+          {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
@@ -66,11 +78,24 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background">
               <div className="flex flex-col gap-6 pt-6">
-                <div className="flex items-center justify-between">
-                  <span className="text-base font-bold text-primary">
+                {/* Mobile Logo + Name */}
+                <div className="flex items-center gap-2">
+                  <img
+                    src={logoImage}
+                    alt="Le Vaal Manor Logo"
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <span className="text-xl text-primary" style={{ fontFamily: 'var(--font-script)' }}>
                     Le Vaal Manor
                   </span>
+                  <SheetClose asChild>
+                    <Button variant="ghost" size="icon" className="ml-auto p-0">
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </SheetClose>
                 </div>
+
+                {/* Mobile Navigation */}
                 <nav className="flex flex-col gap-2" data-testid="nav-mobile">
                   {navItems.map((item) => (
                     <SheetClose asChild key={item.section}>
@@ -92,6 +117,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
               </div>
             </SheetContent>
           </Sheet>
+
         </div>
       </div>
     </header>
