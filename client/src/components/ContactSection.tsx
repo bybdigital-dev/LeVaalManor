@@ -78,13 +78,13 @@ export default function ContactSection() {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-accent font-body text-sm font-medium tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-xs font-medium tracking-[0.2em] uppercase mb-3">
             Get In Touch
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground font-serif">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-serif">
             Book Your Stay
           </h2>
-          <p className="mt-4 text-muted-foreground font-body max-w-2xl mx-auto">
+          <p className="mt-4 text-sm text-muted-foreground font-body max-w-2xl mx-auto">
             Ready to experience Le Vaal Manor? Submit your enquiry and we'll respond within 24 hours.
           </p>
         </div>
@@ -92,8 +92,8 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <Card className="bg-card border-card-border">
             <CardHeader>
-              <CardTitle className="font-serif text-xl md:text-2xl flex items-center gap-2">
-                <Send className="w-5 h-5 text-accent" />
+              <CardTitle className="font-serif text-lg flex items-center gap-2">
+                <Send className="w-4 h-4 text-accent" />
                 Booking Enquiry
               </CardTitle>
             </CardHeader>
@@ -103,10 +103,10 @@ export default function ContactSection() {
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                     <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                  <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                     Thank You!
                   </h3>
-                  <p className="text-muted-foreground font-body">
+                  <p className="text-sm text-muted-foreground font-body">
                     Your enquiry has been submitted successfully. We'll be in touch soon.
                   </p>
                   <Button
@@ -127,7 +127,7 @@ export default function ContactSection() {
                         name="firstName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-body">First Name</FormLabel>
+                            <FormLabel className="font-body text-sm">First Name</FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="John"
@@ -145,7 +145,7 @@ export default function ContactSection() {
                         name="lastName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-body">Last Name</FormLabel>
+                            <FormLabel className="font-body text-sm">Last Name</FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="Smith"
@@ -165,7 +165,7 @@ export default function ContactSection() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="font-body">Email Address</FormLabel>
+                          <FormLabel className="font-body text-sm">Email Address</FormLabel>
                           <FormControl>
                             <Input
                               type="email"
@@ -185,7 +185,7 @@ export default function ContactSection() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="font-body">Phone Number</FormLabel>
+                          <FormLabel className="font-body text-sm">Phone Number</FormLabel>
                           <FormControl>
                             <Input
                               type="tel"
@@ -206,7 +206,7 @@ export default function ContactSection() {
                         name="startDate"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-body">Check-In Date</FormLabel>
+                            <FormLabel className="font-body text-sm">Check-In Date</FormLabel>
                             <FormControl>
                               <Input
                                 type="date"
@@ -224,7 +224,7 @@ export default function ContactSection() {
                         name="endDate"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-body">Check-Out Date</FormLabel>
+                            <FormLabel className="font-body text-sm">Check-Out Date</FormLabel>
                             <FormControl>
                               <Input
                                 type="date"
@@ -244,7 +244,7 @@ export default function ContactSection() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="font-body">Message (Optional)</FormLabel>
+                          <FormLabel className="font-body text-sm">Message (Optional)</FormLabel>
                           <FormControl>
                             <Textarea
                               placeholder="Tell us about your stay requirements, special requests, or any questions you have..."
@@ -286,8 +286,8 @@ export default function ContactSection() {
           <div className="space-y-6">
             <Card className="bg-card border-card-border overflow-hidden">
               <CardHeader>
-                <CardTitle className="font-serif text-xl md:text-2xl flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-accent" />
+                <CardTitle className="font-serif text-lg flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-accent" />
                   Location
                 </CardTitle>
               </CardHeader>
@@ -310,10 +310,10 @@ export default function ContactSection() {
 
             <Card className="bg-card border-card-border">
               <CardContent className="p-6">
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-4">
+                <h3 className="font-serif text-base font-semibold text-foreground mb-3">
                   Property Address
                 </h3>
-                <div className="space-y-3 font-body text-muted-foreground">
+                <div className="space-y-2 font-body text-sm text-muted-foreground">
                   <p>Le Vaal Manor</p>
                   <p>Parys Golf & Country Estate</p>
                   <p>Parys, Free State</p>

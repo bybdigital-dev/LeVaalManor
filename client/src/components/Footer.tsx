@@ -13,14 +13,24 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="py-8 md:py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <button
-              onClick={() => onNavigate("home")}
-              className="text-xl md:text-2xl font-bold font-serif hover:opacity-80 transition-opacity"
-              data-testid="footer-logo"
-            >
-              Le Vaal Manor
-            </button>
 
+            {/* Brand / Description */}
+            <div className="text-center md:text-left max-w-sm">
+              <button
+                onClick={() => onNavigate("home")}
+                className="text-lg font-bold font-serif hover:opacity-80 transition-opacity"
+                data-testid="footer-logo"
+              >
+                Le Vaal Manor
+              </button>
+
+              <p className="mt-2 text-xs text-primary-foreground/70 font-body leading-relaxed">
+                Luxury self-catering accommodation located within the exclusive
+                Parys Golf Estate.
+              </p>
+            </div>
+
+            {/* Social Icons */}
             <div className="flex items-center gap-4">
               <a
                 href="https://facebook.com"
@@ -32,6 +42,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               >
                 <SiFacebook className="w-5 h-5" />
               </a>
+
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -42,6 +53,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               >
                 <SiInstagram className="w-5 h-5" />
               </a>
+
               <a
                 href="https://wa.me/27000000000"
                 target="_blank"
@@ -56,9 +68,22 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
         </div>
 
-        <div className="border-t border-white/10 py-6">
-          <p className="text-center text-sm text-primary-foreground/70 font-body">
+        {/* Footer Bottom */}
+        <div className="border-t border-white/10 py-6 space-y-2">
+          <p className="text-center text-xs text-primary-foreground/70 font-body">
             &copy; {currentYear} Le Vaal Manor. All rights reserved.
+          </p>
+
+          <p className="text-center text-xs text-primary-foreground/60 font-body">
+            Developed by{" "}
+            <a
+              href="https://buildyourbrand.web.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-primary-foreground transition-colors"
+            >
+              BYB Digital
+            </a>
           </p>
         </div>
       </div>

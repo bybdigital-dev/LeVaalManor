@@ -37,15 +37,15 @@ export default function AboutSection() {
           <div className="order-2 lg:order-1">
             <div className="space-y-6">
               <div>
-                <p className="text-accent font-body text-sm font-medium tracking-[0.2em] uppercase mb-3">
+                <p className="text-accent font-body text-xs font-medium tracking-[0.2em] uppercase mb-3">
                   About Le Vaal Manor
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground font-serif leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground font-serif leading-tight">
                   Your Private Retreat on Parys Golf Estate
                 </h2>
               </div>
 
-              <div className="space-y-4 font-body text-muted-foreground leading-relaxed">
+              <div className="space-y-4 font-body text-sm text-muted-foreground leading-relaxed">
                 <p>
                   Le Vaal Manor is a distinguished luxury short-term rental
                   situated on the renowned Parys Golf Estate in the Free State
@@ -96,10 +96,10 @@ export default function AboutSection() {
                   <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                     <feature.icon className="w-7 h-7 text-accent" />
                   </div>
-                  <h3 className="font-semibold text-foreground font-serif text-lg mb-2">
+                  <h3 className="font-semibold text-foreground font-serif text-base mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                  <p className="text-xs text-muted-foreground font-body leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>

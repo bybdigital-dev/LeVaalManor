@@ -34,7 +34,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
             className="flex items-center gap-2 group"
             data-testid="link-home-logo"
           >
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-primary font-serif">
+            <span className="text-lg md:text-xl font-bold tracking-tight text-primary font-serif">
               Le Vaal Manor
             </span>
           </button>
@@ -44,7 +44,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
               <Button
                 key={item.section}
                 variant="ghost"
-                className={`font-body text-sm font-medium px-4 transition-colors ${
+                className={`font-body text-xs font-medium px-3 transition-colors ${
                   activeSection === item.section
                     ? "text-accent bg-accent/10"
                     : "text-muted-foreground"
@@ -67,7 +67,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
             <SheetContent side="right" className="w-[280px] bg-background">
               <div className="flex flex-col gap-6 pt-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-primary font-serif">
+                  <span className="text-base font-bold text-primary font-serif">
                     Le Vaal Manor
                   </span>
                 </div>
@@ -76,7 +76,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
                     <SheetClose asChild key={item.section}>
                       <Button
                         variant="ghost"
-                        className={`justify-start font-body text-base font-medium ${
+                        className={`justify-start font-body text-sm font-medium ${
                           activeSection === item.section
                             ? "text-accent bg-accent/10"
                             : "text-muted-foreground"

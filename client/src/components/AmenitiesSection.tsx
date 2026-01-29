@@ -82,13 +82,13 @@ export default function AmenitiesSection() {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-accent font-body text-sm font-medium tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-xs font-medium tracking-[0.2em] uppercase mb-3">
             Property Features
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground font-serif">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-serif">
             Amenities & Services
           </h2>
-          <p className="mt-4 text-muted-foreground font-body max-w-2xl mx-auto">
+          <p className="mt-4 text-sm text-muted-foreground font-body max-w-2xl mx-auto">
             Everything you need for a comfortable and memorable stay
           </p>
         </div>
@@ -105,10 +105,10 @@ export default function AmenitiesSection() {
                   <amenity.icon className="w-6 h-6 text-accent" />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-semibold text-foreground font-serif text-base mb-1">
+                  <h3 className="font-semibold text-foreground font-serif text-sm mb-1">
                     {amenity.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                  <p className="text-xs text-muted-foreground font-body leading-relaxed">
                     {amenity.description}
                   </p>
                 </div>
