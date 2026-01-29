@@ -51,7 +51,7 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
               <p className="text-accent text-xs font-medium tracking-[0.25em] uppercase">
                 Parys Golf Estate, South Africa
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-white tracking-tight drop-shadow-lg" style={{ fontFamily: 'var(--font-script)' }}>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-widest drop-shadow-lg" style={{ fontFamily: 'var(--font-script)' }}>
                 Le Vaal Manor
               </h1>
             </div>

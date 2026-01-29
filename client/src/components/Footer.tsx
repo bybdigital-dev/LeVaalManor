@@ -18,7 +18,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="text-center md:text-left max-w-sm">
               <button
                 onClick={() => onNavigate("home")}
-                className="text-2xl hover:opacity-80 transition-opacity"
+                className="text-3xl hover:opacity-80 transition-opacity"
                 style={{ fontFamily: 'var(--font-script)' }}
                 data-testid="footer-logo"
               >
