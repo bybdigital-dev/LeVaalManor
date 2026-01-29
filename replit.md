@@ -39,12 +39,40 @@ Located in `client/src/components/`:
 ### Design Tokens
 - **Primary**: Navy blue (220 60% 25%)
 - **Accent**: Gold (45 75% 50%)
-- **Typography**: Playfair Display (headings), Inter/DM Sans (body)
+- **Typography**: Inter (unified across all headings, body, forms, buttons)
+
+### Property Details (About Section)
+- 4 bedrooms with en-suite bathrooms
+- Full kitchen with modern appliances
+- Pool table in entertainment room
+- Solar power system
+- Swimming pool
+- Two outdoor braai areas
+- Indoor fireplace (kaggel)
+- Two lock-up garages + two parking spaces
+- 24-hour estate security
+
+### Local Activities (Amenities Section)
+- River activities (Vaal River)
+- Golf on Parys Golf Estate
+- Hiking & nature trails
+- Sightseeing (Vredefort Dome UNESCO site)
+- Adventure activities
+
+### Restaurant Recommendations
+- O's Restaurant (Fine Dining)
+- The Old Gaol Café (Café & Bistro)
+- Cobblestones (Restaurant & Bar)
+- Die Koei se Gras (Country Kitchen)
 
 ## Development
 The application runs on port 5000 with `npm run dev`. The Vite dev server handles hot reloading for frontend changes.
 
 ## Recent Changes
+- Font unification: All text now uses Inter sans-serif consistently
+- About section updated with detailed property features (10 cards)
+- Amenities section expanded with local activities and restaurant recommendations
+- Removed mixed font-serif/font-body classes for consistency
 - Initial build: Complete SPA with all sections
 - Navy blue + gold color scheme implementation
 - Booking enquiry form with backend storage

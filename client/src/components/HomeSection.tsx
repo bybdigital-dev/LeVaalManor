@@ -48,21 +48,21 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
             <div className="space-y-3">
-              <p className="text-accent font-body text-xs font-medium tracking-[0.25em] uppercase">
+              <p className="text-accent text-xs font-medium tracking-[0.25em] uppercase">
                 Parys Golf Estate, South Africa
               </p>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-serif tracking-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                 Le Vaal Manor
               </h1>
             </div>
-            <p className="text-base md:text-lg text-white/90 font-body max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
               Experience refined luxury and tranquil elegance in an exclusive
               golf estate setting
             </p>
             <div className="pt-4 md:pt-6">
               <Button
                 size="lg"
-                className="bg-accent text-accent-foreground border-accent-border font-body font-medium shadow-lg"
+                className="bg-accent text-accent-foreground border-accent-border font-medium shadow-lg"
                 onClick={() => onNavigate("contact")}
                 data-testid="button-book-stay"
               >
@@ -84,10 +84,10 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12 md:mb-16">
-            <p className="text-accent font-body text-xs font-medium tracking-[0.2em] uppercase mb-3">
+            <p className="text-accent text-xs font-medium tracking-[0.2em] uppercase mb-3">
               Guest Experiences
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground font-serif">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
               What Our Guests Say
             </h2>
           </div>
@@ -109,14 +109,14 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
                       />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed mb-6">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                     "{testimonial.text}"
                   </p>
                   <div className="border-t border-border pt-4">
-                    <p className="text-sm font-semibold text-foreground font-body">
+                    <p className="text-sm font-semibold text-foreground">
                       {testimonial.name}
                     </p>
-                    <p className="text-xs text-muted-foreground font-body">
+                    <p className="text-xs text-muted-foreground">
                       {testimonial.location}
                     </p>
                   </div>

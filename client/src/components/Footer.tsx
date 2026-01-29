@@ -18,13 +18,13 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="text-center md:text-left max-w-sm">
               <button
                 onClick={() => onNavigate("home")}
-                className="text-lg font-bold font-serif hover:opacity-80 transition-opacity"
+                className="text-lg font-bold hover:opacity-80 transition-opacity"
                 data-testid="footer-logo"
               >
                 Le Vaal Manor
               </button>
 
-              <p className="mt-2 text-xs text-primary-foreground/70 font-body leading-relaxed">
+              <p className="mt-2 text-xs text-primary-foreground/70 leading-relaxed">
                 Luxury self-catering accommodation located within the exclusive
                 Parys Golf Estate.
               </p>
@@ -70,11 +70,11 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         {/* Footer Bottom */}
         <div className="border-t border-white/10 py-6 space-y-2">
-          <p className="text-center text-xs text-primary-foreground/70 font-body">
+          <p className="text-center text-xs text-primary-foreground/70">
             &copy; {currentYear} Le Vaal Manor. All rights reserved.
           </p>
 
-          <p className="text-center text-xs text-primary-foreground/60 font-body">
+          <p className="text-center text-xs text-primary-foreground/60">
             Developed by{" "}
             <a
               href="https://buildyourbrand.web.za/"

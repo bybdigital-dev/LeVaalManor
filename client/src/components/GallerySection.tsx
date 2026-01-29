@@ -54,13 +54,13 @@ export default function GallerySection() {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-accent font-body text-xs font-medium tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent text-xs font-medium tracking-[0.2em] uppercase mb-3">
             Photo Gallery
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-serif">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Explore Le Vaal Manor
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground font-body max-w-2xl mx-auto">
+          <p className="mt-4 text-sm text-muted-foreground max-w-2xl mx-auto">
             Take a visual journey through our luxurious spaces and stunning surroundings
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function GallerySection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ visibility: "visible" }}>
-                <p className="text-white font-body font-medium text-sm">
+                <p className="text-white font-medium text-sm">
                   {image.title}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function GallerySection() {
                   className="w-full h-auto max-h-[85vh] object-contain"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                  <p className="text-white font-body font-medium text-base">
+                  <p className="text-white font-medium text-base">
                     {selectedImage.title}
                   </p>
                 </div>
