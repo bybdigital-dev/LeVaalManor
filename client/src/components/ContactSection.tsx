@@ -19,9 +19,11 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Send, Loader2, CheckCircle } from "lucide-react";
 import { Phone } from "lucide-react";
+import { useRef } from "react";
 
 const WORKER_URL = "https://forms.afriwafel.co.za/submit";
 const FORM_ID = "vaal-contact";
+const t0Ref = useRef(Date.now())
 
 const bookingFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -54,23 +56,49 @@ export default function ContactSection() {
 
   const mutation = useMutation({
     mutationFn: async (data: BookingFormData) => {
-      const response = await fetch(
-        `${WORKER_URL}/${FORM_ID}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      // Build payload the Worker expects (same style as your working example)
+      const payload: Record<string, any> = {
+        ...data,
 
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(text || "Submission failed");
+        // REQUIRED: Worker identifies the KV form config from this
+        formId: FORM_ID,
+
+        // Often used in templates / emails
+        name: [data.firstName, data.lastName].filter(Boolean).join(" "),
+
+        // Anti-bot timer (matches your working example approach)
+        _t0: t0Ref.current,
+
+        // Optional honeypot (safe to include even if Worker ignores it)
+        hp: "",
+      };
+
+      // IMPORTANT: Post to WORKER_URL ONLY (no /{FORM_ID} at end)
+      const response = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      // If the Worker ever redirects, treat as success (same as your working example)
+      if (response.type === "opaqueredirect" || response.redirected) {
+        return { ok: true };
       }
 
-      return response.json();
+      // Try parse json, but keep useful error text if not JSON
+      const text = await response.text();
+      let json: any = {};
+      try {
+        json = text ? JSON.parse(text) : {};
+      } catch {
+        // not json; leave json as {}
+      }
+
+      if (!response.ok || json?.ok === false) {
+        throw new Error(json?.error || text || "Submission failed");
+      }
+
+      return json;
     },
 
     onSuccess: () => {
@@ -85,7 +113,7 @@ export default function ContactSection() {
     onError: (error: any) => {
       toast({
         title: "Something went wrong",
-        description: error.message || "Please try again.",
+        description: error?.message || "Please try again.",
         variant: "destructive",
       });
     },
