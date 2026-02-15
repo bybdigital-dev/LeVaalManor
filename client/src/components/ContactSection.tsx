@@ -23,7 +23,7 @@ import { useRef } from "react";
 
 const WORKER_URL = "https://forms.afriwafel.co.za/submit";
 const FORM_ID = "vaal-contact";
-const t0Ref = useRef(Date.now())
+
 
 const bookingFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -40,6 +40,8 @@ type BookingFormData = z.infer<typeof bookingFormSchema>;
 export default function ContactSection() {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const t0Ref = useRef(Date.now())
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingFormSchema),
