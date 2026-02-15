@@ -1,69 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Waves,
-  Flame,
-  Sun,
-  ChefHat,
-  Wifi,
-  Tv,
-  Wind,
-  Coffee,
-  Flag,
-  Mountain,
   Ship,
+  Flag,
   TreePine,
   Eye,
+  Mountain,
   UtensilsCrossed,
   MapPin,
-} from "lucide-react";
-
-const propertyAmenities = [
-  {
-    icon: Waves,
-    title: "Swimming Pool",
-    description: "Private pool for relaxation and entertainment",
-  },
-  {
-    icon: Flame,
-    title: "Two Braai Areas",
-    description: "Outdoor braai facilities with seating and dining space",
-  },
-  {
-    icon: Flame,
-    title: "Indoor Fireplace",
-    description: "Cosy kaggel for warm evenings",
-  },
-  {
-    icon: Sun,
-    title: "Solar Power",
-    description: "Uninterrupted electricity supply",
-  },
-  {
-    icon: ChefHat,
-    title: "Full Kitchen",
-    description: "Modern appliances and cookware",
-  },
-  {
-    icon: Wifi,
-    title: "Free Wi-Fi",
-    description: "High-speed fibre internet throughout",
-  },
-  {
-    icon: Tv,
-    title: "Entertainment",
-    description: "Smart TV with streaming services",
-  },
-  {
-    icon: Wind,
-    title: "Air Conditioning",
-    description: "Climate control in all rooms",
-  },
-  {
-    icon: Coffee,
-    title: "Welcome Amenities",
-    description: "Coffee, tea, and refreshments",
-  },
-];
+} from "lucide-react"; // Make sure Padel, Squash, TennisBall are valid icons; otherwise replace with your preferred icons
 
 const localActivities = [
   {
@@ -96,6 +40,24 @@ const localActivities = [
     description:
       "Experience quad biking, hot air ballooning, and other outdoor adventures available locally.",
   },
+  {
+    icon: Flag,
+    title: "Tennis",
+    description:
+      "Enjoy the tennis courts on the Parys Golf Estate for casual or competitive play.",
+  },
+  {
+    icon: Flag,
+    title: "Squash",
+    description:
+      "Challenge your friends on the estate’s squash courts and enjoy a fun workout.",
+  },
+  {
+    icon: Flag,
+    title: "Padel",
+    description:
+      "Try the growing sport of padel on the estate’s professional courts.",
+  },
 ];
 
 const restaurants = [
@@ -119,49 +81,34 @@ const restaurants = [
     type: "Country Kitchen",
     description: "Traditional South African cuisine",
   },
+  {
+    name: "Riverbank Deli",
+    type: "Café",
+    description: "Light meals, coffee, and pastries by the river",
+  },
+  {
+    name: "Estate Bistro",
+    type: "Bistro",
+    description: "Casual dining with local ingredients and wines",
+  },
+  {
+    name: "The Green Pepper",
+    type: "Restaurant & Bar",
+    description: "Casual, family-friendly with a contemporary menu",
+  },
+  {
+    name: "Sunset Lounge",
+    type: "Bar & Café",
+    description: "Relax with drinks and tapas while enjoying sunset views",
+  },
 ];
 
 export default function AmenitiesSection() {
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-accent text-xs font-medium tracking-[0.2em] uppercase mb-3">
-            Property Features
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Amenities & Services
-          </h2>
-          <p className="mt-4 text-sm text-muted-foreground max-w-2xl mx-auto">
-            Everything you need for a comfortable and memorable stay
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {propertyAmenities.map((amenity) => (
-            <Card
-              key={amenity.title}
-              className="bg-card border-card-border hover-elevate transition-all duration-300 group"
-              data-testid={`card-amenity-${amenity.title.toLowerCase().replace(/\s+/g, "-")}`}
-            >
-              <CardContent className="p-5 flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <amenity.icon className="w-5 h-5 text-accent" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-semibold text-foreground text-sm mb-1">
-                    {amenity.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {amenity.description}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="mt-20 md:mt-28">
+        {/* LOCAL ACTIVITIES */}
+        <div className="mt-0 md:mt-0">
           <div className="text-center mb-12">
             <p className="text-accent text-xs font-medium tracking-[0.2em] uppercase mb-3">
               Explore Parys
@@ -197,6 +144,7 @@ export default function AmenitiesSection() {
           </div>
         </div>
 
+        {/* RESTAURANTS */}
         <div className="mt-16 md:mt-20">
           <div className="text-center mb-10">
             <p className="text-accent text-xs font-medium tracking-[0.2em] uppercase mb-3">

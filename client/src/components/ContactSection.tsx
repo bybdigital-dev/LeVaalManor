@@ -18,6 +18,10 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Send, Loader2, CheckCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+
+const WORKER_URL = "https://forms.afriwafel.co.za/submit";
+const FORM_ID = "vaal-contact";
 
 const bookingFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -50,9 +54,25 @@ export default function ContactSection() {
 
   const mutation = useMutation({
     mutationFn: async (data: BookingFormData) => {
-      const response = await apiRequest("POST", "/api/booking-enquiry", data);
+      const response = await fetch(
+        `${WORKER_URL}/${FORM_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || "Submission failed");
+      }
+
       return response.json();
     },
+
     onSuccess: () => {
       setIsSubmitted(true);
       form.reset();
@@ -61,10 +81,11 @@ export default function ContactSection() {
         description: "We'll get back to you within 24 hours.",
       });
     },
-    onError: () => {
+
+    onError: (error: any) => {
       toast({
         title: "Something went wrong",
-        description: "Please try again or contact us directly.",
+        description: error.message || "Please try again.",
         variant: "destructive",
       });
     },
@@ -89,7 +110,10 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* SINGLE COLUMN STACK */}
+        <div className="flex flex-col space-y-8">
+
+          {/* Booking Enquiry Card */}
           <Card className="bg-card border-card-border">
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
@@ -277,45 +301,68 @@ export default function ContactSection() {
             </CardContent>
           </Card>
 
-          <div className="space-y-6">
-            <Card className="bg-card border-card-border overflow-hidden">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-accent" />
-                  Location
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <div className="aspect-[4/3] w-full">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28476.07726929478!2d27.42!3d-26.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e96ef63893c1e25%3A0x1c03dd7c8d4f77dd!2sParys%20Golf%20%26%20Country%20Estate!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Parys Golf Estate Location"
-                    data-testid="map-location"
-                  />
-                </div>
-              </CardContent>
-            </Card>
+          {/* CALL US TODAY */}
+          <Card className="bg-card border-card-border">
+            <CardContent className="p-6 text-center">
+              <h3 className="text-base font-semibold text-foreground mb-2">
+                Prefer to talk?
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Call us today and we’ll be happy to assist you.
+              </p>
+              <Button
+                variant="default"
+                size="lg"
+                className="w-full flex items-center justify-center"
+                asChild
+              >
+                <a href="tel:+27844787501">
+                  <Phone className="w-4 h-4 mr-2" /> Call now
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
 
-            <Card className="bg-card border-card-border">
-              <CardContent className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-3">
-                  Property Address
-                </h3>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p>Le Vaal Manor</p>
-                  <p>Parys Golf & Country Estate</p>
-                  <p>Parys, Free State</p>
-                  <p>South Africa, 9585</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          {/* MAP */}
+          <Card className="bg-card border-card-border overflow-hidden">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-accent" />
+                Location
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="aspect-[4/3] w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28476.07726929478!2d27.42!3d-26.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e96ef63893c1e25%3A0x1c03dd7c8d4f77dd!2sParys%20Golf%20%26%20Country%20Estate!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Parys Golf Estate Location"
+                  data-testid="map-location"
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Property Address */}
+          <Card className="bg-card border-card-border">
+            <CardContent className="p-6">
+              <h3 className="text-base font-semibold text-foreground mb-3">
+                Property Address
+              </h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p>Le Vaal Manor</p>
+                <p>2980 Kingfisher Ave</p>
+                <p>Parys Golf & Country Estate</p>
+                <p>South Africa, 9585</p>
+              </div>
+            </CardContent>
+          </Card>
+
         </div>
       </div>
     </section>

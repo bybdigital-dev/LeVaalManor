@@ -34,7 +34,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             {/* Social Icons */}
             <div className="flex items-center gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1Fx6JBzMsW/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover-elevate active-elevate-2"
@@ -45,7 +45,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/levaalmanor?igsh=MTA1MnBiM3Y5YTE2dg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover-elevate active-elevate-2"
@@ -54,9 +54,10 @@ export default function Footer({ onNavigate }: FooterProps) {
               >
                 <SiInstagram className="w-5 h-5" />
               </a>
+              
 
               <a
-                href="https://wa.me/27000000000"
+                href="https://wa.me/27844787501"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover-elevate active-elevate-2"
@@ -66,7 +67,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <SiWhatsapp className="w-5 h-5" />
               </a>
             </div>
-          </div>
+            </div>
         </div>
 
         {/* Footer Bottom */}

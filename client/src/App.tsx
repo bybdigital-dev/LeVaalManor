@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Router as WouterRouter, Switch, Route } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -14,50 +16,89 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 export type Section = "home" | "about" | "gallery" | "amenities" | "contact";
 
-function App() {
-  const [activeSection, setActiveSection] = useState<Section>("home");
-  const [isTransitioning, setIsTransitioning] = useState(false);
+function SectionWrapper({ children }: { children: JSX.Element }) {
+  const [isTransitioning, setIsTransitioning] = useState(true);
 
-  const handleSectionChange = (section: Section) => {
-    if (section === activeSection) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveSection(section);
-      setIsTransitioning(false);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 300);
-  };
+  useEffect(() => {
+    setIsTransitioning(false);
+  }, [children]);
 
   useEffect(() => {
     document.body.style.overflow = isTransitioning ? "hidden" : "auto";
   }, [isTransitioning]);
 
   return (
+    <div
+      className={`transition-all duration-300 ease-in-out ${
+        isTransitioning ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function Routes({ onSectionChange }: { onSectionChange: (section: Section) => void }) {
+  return (
+    <Switch>
+      <Route path="/">
+        <SectionWrapper>
+          <HomeSection onNavigate={onSectionChange} />
+        </SectionWrapper>
+      </Route>
+      <Route path="/about">
+        <SectionWrapper>
+          <AboutSection />
+        </SectionWrapper>
+      </Route>
+      <Route path="/gallery">
+        <SectionWrapper>
+          <GallerySection />
+        </SectionWrapper>
+      </Route>
+      <Route path="/amenities">
+        <SectionWrapper>
+          <AmenitiesSection />
+        </SectionWrapper>
+      </Route>
+      <Route path="/contact">
+        <SectionWrapper>
+          <ContactSection />
+        </SectionWrapper>
+      </Route>
+      {/* optional catch-all */}
+      <Route>
+        <SectionWrapper>
+          <HomeSection onNavigate={onSectionChange} />
+        </SectionWrapper>
+      </Route>
+    </Switch>
+  );
+}
+
+function App() {
+  const [activeSection, setActiveSection] = useState<Section>("home");
+
+  const handleSectionChange = (section: Section) => {
+    setActiveSection(section);
+    window.location.hash = `#/${section}`;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="min-h-screen flex flex-col bg-background">
-          <Header activeSection={activeSection} onSectionChange={handleSectionChange} />
-          
-          <main className="flex-1">
-            <div
-              className={`transition-all duration-300 ease-in-out ${
-                isTransitioning ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
-              }`}
-            >
-              {activeSection === "home" && (
-                <HomeSection onNavigate={handleSectionChange} />
-              )}
-              {activeSection === "about" && <AboutSection />}
-              {activeSection === "gallery" && <GallerySection />}
-              {activeSection === "amenities" && <AmenitiesSection />}
-              {activeSection === "contact" && <ContactSection />}
-            </div>
-          </main>
-
-          <Footer onNavigate={handleSectionChange} />
-          <ScrollToTop />
+          <WouterRouter hook={useHashLocation}>
+            <Header activeSection={activeSection} onSectionChange={handleSectionChange} />
+            <main className="flex-1">
+              <Routes onSectionChange={handleSectionChange} />
+              <ScrollToTop />
+            </main>
+            <Footer onNavigate={handleSectionChange} />
+          </WouterRouter>
+          <Toaster />
         </div>
-        <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
   );
