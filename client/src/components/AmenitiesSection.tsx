@@ -63,44 +63,57 @@ const localActivities = [
 const restaurants = [
   {
     name: "O's Restaurant",
-    type: "Fine Dining",
-    description: "Upmarket dining with river views",
+    type: "Restaurant / Grill",
+    description: "Casual family-friendly restaurant serving hearty grills, burgers, and comfort food classics.",
   },
   {
-    name: "The Old Gaol Café",
-    type: "Café & Bistro",
-    description: "Charming café in a historic building",
+    name: "Hoi Polloi",
+    type: "Bistro · Café · Microbrewery",
+    description: "Trendy riverside venue offering craft beer, contemporary bistro meals, and relaxed social dining.",
   },
   {
-    name: "Cobblestones",
-    type: "Restaurant & Bar",
-    description: "Popular spot for casual dining",
+    name: "En Style & AN Artisan Café",
+    type: "Artisan Café",
+    description: "Boutique café focused on artisanal coffee, light meals, and refined café-style dishes.",
   },
   {
-    name: "Die Koei se Gras",
-    type: "Country Kitchen",
-    description: "Traditional South African cuisine",
+    name: "Parys Golf Club Restaurant",
+    type: "Clubhouse Restaurant",
+    description: "Relaxed dining at the golf course, serving traditional South African meals and pub-style favourites.",
   },
   {
-    name: "Riverbank Deli",
-    type: "Café",
-    description: "Light meals, coffee, and pastries by the river",
+    name: "Rollers on R59",
+    type: "Roadhouse / Family Restaurant",
+    description: "Popular roadside stop known for generous portions, grills, pizzas, and a lively family atmosphere.",
   },
   {
-    name: "Estate Bistro",
-    type: "Bistro",
-    description: "Casual dining with local ingredients and wines",
+    name: "G on V Riverfront Restaurant",
+    type: "Riverfront Restaurant",
+    description: "Upmarket casual dining with river views, offering modern South African cuisine and cocktails.",
   },
   {
-    name: "The Green Pepper",
-    type: "Restaurant & Bar",
-    description: "Casual, family-friendly with a contemporary menu",
+    name: "Jimmy Jaggers Restaurant",
+    type: "Casual Dining / Pub-style Restaurant",
+    description: "Relaxed eatery serving burgers, steaks, and comfort food with a social, laid-back vibe.",
   },
   {
-    name: "Sunset Lounge",
-    type: "Bar & Café",
-    description: "Relax with drinks and tapas while enjoying sunset views",
+    name: "Uitkyk Bar & Grill",
+    type: "Bar & Grill",
+    description: "Informal grill house and bar offering classic braai options, drinks, and outdoor seating.",
   },
+  {
+    name: "Bosboer",
+    type: "Bar & Grill",
+    description: "Country-style dining with traditional farm-inspired meals and a relaxed, rustic setting.",
+  },
+  {
+    name: "Angelo’s Pane Vino",
+    type: "Italian Restaurant",
+    description: "Authentic Italian dining featuring wood-fired pizzas, pasta, and a strong wine-focused menu.",
+  },
+
+
+  
 ];
 
 export default function AmenitiesSection() {
