@@ -11,10 +11,10 @@ interface HomeSectionProps {
 const testimonials = [
   {
     id: 1,
-    name: "Martin & Beth Robinson",
-    location: "Cape Town, SA",
+    name: "Tarryn",
+    location: "Pretoria, SA",
     rating: 5,
-    text: "An absolutely stunning property. The attention to detail, the views of the golf course, and the peaceful atmosphere made our anniversary trip unforgettable. We will definitely be returning.",
+    text: "Our stay at this home was wonderful. The house is big, beautifully decorated, and perfectly situated right on the golf course. There is an upstairs entertainment area with the pool table and balcony with a braai and outdoor seating. We were also so impressed by how clean the entire property was, both inside and out. The hosts kept us informed every step of the way and everyone on the estate was so friendly. We will definitely be back for more memories!",
   },
   {
     id: 2,
@@ -37,17 +37,14 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
     <div className="flex flex-col">
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full h-screen">
-        {/* HERO IMAGE */}
         <img
           src={heroImage}
           alt="Le Vaal Manor exterior"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* HERO CONTENT */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 md:px-6">
           <p className="text-accent text-xs font-medium tracking-[0.25em] uppercase mb-2">
             Parys Golf Estate, South Africa
@@ -75,7 +72,6 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
           </Button>
         </div>
 
-        {/* SCROLL INDICATOR */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
           <div className="animate-bounce">
             <div className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-2">
@@ -101,25 +97,29 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
             {testimonials.map((testimonial) => (
               <Card
                 key={testimonial.id}
-                className="bg-card border-card-border hover-elevate transition-all duration-300"
+                className="bg-card border-card-border hover-elevate transition-all duration-300 h-full"
               >
-                <CardContent className="p-6 md:p-8">
+                <CardContent className="p-6 md:p-8 flex flex-col h-full">
                   <Quote className="w-8 h-8 text-accent/40 mb-4" />
 
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-accent text-accent"
-                      />
-                    ))}
-                  </div>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  {/* Testimonial text grows */}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow">
                     "{testimonial.text}"
                   </p>
 
-                  <div className="border-t border-border pt-4">
+                  {/* Bottom Section */}
+                  <div className="mt-auto border-t border-border pt-4">
+                    <div className="flex gap-1 mb-2">
+                      {Array.from({ length: testimonial.rating }).map(
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-accent text-accent"
+                          />
+                        )
+                      )}
+                    </div>
+
                     <p className="text-sm font-semibold text-foreground">
                       {testimonial.name}
                     </p>
