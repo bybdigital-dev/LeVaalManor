@@ -12,7 +12,6 @@ Car,
 Shield,
 Sparkles,
 Play,
-X,
 } from "lucide-react";
 
 import videoThumbnail from "@assets/images/31.jpg";
@@ -54,7 +53,7 @@ youtubeId: "-f_asUV1D7o",
 };
 
 export default function AboutSection() {
-const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
 return ( <section className="py-16 md:py-24 bg-background"> <div className="container mx-auto px-4 md:px-6">
 {/* ================= ABOUT TEXT ================= */} <div className="space-y-6 max-w-4xl mx-auto text-center"> <p className="text-accent text-xs font-medium tracking-[0.2em] uppercase mb-3">
@@ -110,68 +109,53 @@ Your Private Retreat on Parys Golf Estate </h2>
     </div>
 
     {/* ================= VIDEO CARD ================= */}
-    <div className="mt-12 max-w-3xl mx-auto">
-      <button
-        type="button"
-        onClick={() => setSelectedVideo(propertyVideo.youtubeId)}
-        className="group w-full text-left rounded-lg overflow-hidden shadow-xl bg-card border border-card-border hover-elevate transition-all duration-300"
-      >
-        <div className="relative aspect-video overflow-hidden">
-          <img
-            src={propertyVideo.thumbnail}
-            alt={propertyVideo.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    <div className="mt-12 max-w-3xl mx-auto rounded-lg overflow-hidden shadow-xl bg-card border border-card-border">
+      <div className="relative aspect-video overflow-hidden bg-black">
+        {isVideoPlaying ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${propertyVideo.youtubeId}?autoplay=1`}
+            title="Le Vaal Manor Video"
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
           />
-
-          <div className="absolute inset-0 bg-black/35 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <Play className="w-8 h-8 text-black ml-1" />
-            </div>
-          </div>
-
-          {propertyVideo.duration && (
-            <div className="absolute bottom-3 right-3 bg-black/80 text-white text-xs px-2 py-1 rounded">
-              {propertyVideo.duration}
-            </div>
-          )}
-        </div>
-
-        <div className="p-5">
-          <h3 className="font-semibold text-foreground text-lg mb-1">
-            {propertyVideo.title}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {propertyVideo.description}
-          </p>
-        </div>
-      </button>
-    </div>
-
-    {/* ================= VIDEO POPUP ================= */}
-    {selectedVideo && (
-      <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4">
-        <div className="relative w-full max-w-5xl">
+        ) : (
           <button
             type="button"
-            onClick={() => setSelectedVideo(null)}
-            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-            aria-label="Close video"
+            onClick={() => setIsVideoPlaying(true)}
+            className="group w-full h-full"
+            aria-label="Play Le Vaal Manor video"
           >
-            <X className="w-8 h-8" />
-          </button>
-
-          <div className="aspect-video rounded-lg overflow-hidden bg-black">
-            <iframe
-              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
-              title="Le Vaal Manor Video"
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+            <img
+              src={propertyVideo.thumbnail}
+              alt={propertyVideo.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-          </div>
-        </div>
+
+            <div className="absolute inset-0 bg-black/35 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Play className="w-8 h-8 text-black ml-1" />
+              </div>
+            </div>
+
+            {propertyVideo.duration && (
+              <div className="absolute bottom-3 right-3 bg-black/80 text-white text-xs px-2 py-1 rounded">
+                {propertyVideo.duration}
+              </div>
+            )}
+          </button>
+        )}
       </div>
-    )}
+
+      <div className="p-5">
+        <h3 className="font-semibold text-foreground text-lg mb-1">
+          {propertyVideo.title}
+        </h3>
+        <p className="text-sm text-muted-foreground">
+          {propertyVideo.description}
+        </p>
+      </div>
+    </div>
 
     {/* ================= HIGHLIGHTS ================= */}
     <div className="flex justify-center mt-20 md:mt-28">
