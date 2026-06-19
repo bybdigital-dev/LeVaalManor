@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { X } from "lucide-react";
 import I1 from "@assets/images/unnamed.jpg";
 import I2 from "@assets/images/livingroom4.jpg";
 import I3 from "@assets/images/kaggel2.jpg";
@@ -59,20 +58,18 @@ import I55 from "@assets/images/outside2.JPG";
 import I56 from "@assets/images/front1.JPG";
 import I57 from "@assets/images/front2.JPG";
 
-
-
 const galleryImages = [
   { id: 1, src: I1, alt: "Le Vaal Manor", title: "Le Vaal Manor" },
   { id: 2, src: I2, alt: "Living room", title: "Living room" },
   { id: 3, src: I3, alt: "Fireplace", title: "Fireplace" },
   { id: 4, src: I4, alt: "Entertainment room", title: "Entertainment room" },
   { id: 5, src: I5, alt: "Patio", title: "Patio" },
-   { id: 6, src: I6, alt: "Pool", title: "Pool" },
-   { id: 7, src: I7, alt: "Scenery", title: "Scenery" },
+  { id: 6, src: I6, alt: "Pool", title: "Pool" },
+  { id: 7, src: I7, alt: "Scenery", title: "Scenery" },
   { id: 8, src: I8, alt: "Living room", title: "Living room" },
-   { id: 9, src: I9, alt: "Living room", title: "Living room" },
+  { id: 9, src: I9, alt: "Living room", title: "Living room" },
   { id: 10, src: I10, alt: "Living room", title: "Living room" },
-   { id: 11, src: I11, alt: "Living room", title: "Living room" },
+  { id: 11, src: I11, alt: "Living room", title: "Living room" },
   { id: 12, src: I12, alt: "Living room", title: "Living room" },
   { id: 13, src: I13, alt: "Living room", title: "Living room" },
   { id: 14, src: I14, alt: "Kitchen", title: "Kitchen" },
@@ -84,10 +81,10 @@ const galleryImages = [
   { id: 20, src: I20, alt: "Scenery", title: "Scenery" },
   { id: 21, src: I21, alt: "Patio", title: "Patio" },
   { id: 22, src: I22, alt: "Pool", title: "Pool" },
-   { id: 23, src: I23, alt: "Pool", title: "Pool" },
+  { id: 23, src: I23, alt: "Pool", title: "Pool" },
   { id: 24, src: I24, alt: "Patio", title: "Patio" },
   { id: 25, src: I25, alt: "Pool", title: "Pool" },
-   { id: 26, src: I26, alt: "Scenery", title: "Scenery" },
+  { id: 26, src: I26, alt: "Scenery", title: "Scenery" },
   { id: 27, src: I27, alt: "Bedroom 1", title: "Bedroom 1" },
   { id: 28, src: I28, alt: "Bedroom 1", title: "Bedroom 1" },
   { id: 29, src: I29, alt: "Bedroom 1", title: "Bedroom 1" },
@@ -96,22 +93,22 @@ const galleryImages = [
   { id: 32, src: I32, alt: "Bedroom 2", title: "Bedroom 2" },
   { id: 33, src: I33, alt: "Bedroom 2", title: "Bedroom 2" },
   { id: 34, src: I34, alt: "Bedroom 2 bathroom", title: "Bedroom 2 bathroom" },
-   { id: 35, src: I35, alt: "Bedroom 3", title: "Bedroom 3" },
-   { id: 36, src: I36, alt: "Bedroom 3", title: "Bedroom 3" },
-   { id: 37, src: I37, alt: "Bedroom 3", title: "Bedroom 3" },
-   { id: 38, src: I38, alt: "Bedroom 3 bathroom", title: "Bedroom 3 bathroom" },
+  { id: 35, src: I35, alt: "Bedroom 3", title: "Bedroom 3" },
+  { id: 36, src: I36, alt: "Bedroom 3", title: "Bedroom 3" },
+  { id: 37, src: I37, alt: "Bedroom 3", title: "Bedroom 3" },
+  { id: 38, src: I38, alt: "Bedroom 3 bathroom", title: "Bedroom 3 bathroom" },
   { id: 39, src: I39, alt: "Bedroom 4", title: "Bedroom 4" },
-   { id: 40, src: I40, alt: "Bedroom 4", title: "Bedroom 4" },
-   { id: 41, src: I41, alt: "Bedroom 4", title: "Bedroom 4" },
-   { id: 42, src: I42, alt: "Bedroom 4 bathroom", title: "Bedroom 4 bathroom" },
+  { id: 40, src: I40, alt: "Bedroom 4", title: "Bedroom 4" },
+  { id: 41, src: I41, alt: "Bedroom 4", title: "Bedroom 4" },
+  { id: 42, src: I42, alt: "Bedroom 4 bathroom", title: "Bedroom 4 bathroom" },
   { id: 43, src: I43, alt: "Entertainment room", title: "Entertainment room" },
   { id: 44, src: I44, alt: "Entertainment room", title: "Entertainment room" },
   { id: 45, src: I45, alt: "Entertainment room", title: "Entertainment room" },
   { id: 46, src: I46, alt: "Scenery", title: "Scenery" },
-   { id: 47, src: I47, alt: "Scenery", title: "Scenery" },
-   { id: 48, src: I48, alt: "Scenery", title: "Scenery" },
-   { id: 49, src: I49, alt: "Scenery", title: "Scenery" },
-   { id: 50, src: I50, alt: "Scenery", title: "Scenery" },
+  { id: 47, src: I47, alt: "Scenery", title: "Scenery" },
+  { id: 48, src: I48, alt: "Scenery", title: "Scenery" },
+  { id: 49, src: I49, alt: "Scenery", title: "Scenery" },
+  { id: 50, src: I50, alt: "Scenery", title: "Scenery" },
   { id: 51, src: I51, alt: "Scenery", title: "Scenery" },
   { id: 52, src: I52, alt: "Scenery", title: "Scenery" },
   { id: 53, src: I53, alt: "Scenery", title: "Scenery" },
@@ -119,15 +116,11 @@ const galleryImages = [
   { id: 55, src: I55, alt: "Backyard", title: "Backyard" },
   { id: 56, src: I56, alt: "Front view", title: "Front view" },
   { id: 57, src: I57, alt: "Front view", title: "Front view" },
-  
-
-
-  
-  
 ];
 
 export default function GallerySection() {
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [selectedImage, setSelectedImage] =
+    useState<(typeof galleryImages)[0] | null>(null);
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -138,10 +131,13 @@ export default function GallerySection() {
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Explore{" "}
-            <span style={{ fontFamily: "var(--font-script)" }}>Le Vaal Manor</span>
+            <span style={{ fontFamily: "var(--font-script)" }}>
+              Le Vaal Manor
+            </span>
           </h2>
           <p className="mt-4 text-sm text-muted-foreground max-w-2xl mx-auto">
-            Take a visual journey through our luxurious spaces and stunning surroundings
+            Take a visual journey through our luxurious spaces and stunning
+            surroundings
           </p>
         </div>
 
@@ -158,7 +154,9 @@ export default function GallerySection() {
                 alt={image.alt}
                 className="w-full h-full object-cover"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
               <div
                 className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ visibility: "visible" }}
@@ -170,14 +168,7 @@ export default function GallerySection() {
         </div>
 
         <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95 border-none">
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover-elevate active-elevate-2"
-              data-testid="button-close-gallery"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
+          <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95 border-none [&>button]:!opacity-100 [&>button]:!bg-black/70 [&>button:hover]:!bg-black/90 [&>button]:!text-white [&>button]:!rounded-full [&>button]:!w-10 [&>button]:!h-10 [&>button]:!flex [&>button]:!items-center [&>button]:!justify-center [&>button]:!right-4 [&>button]:!top-4 [&>button]:!z-50 [&>button>svg]:!w-6 [&>button>svg]:!h-6 [&>button>svg]:!text-white">
             {selectedImage && (
               <div className="relative">
                 <img
@@ -185,6 +176,7 @@ export default function GallerySection() {
                   alt={selectedImage.alt}
                   className="w-full h-auto max-h-[85vh] object-contain"
                 />
+
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                   <p className="text-white font-medium text-base">
                     {selectedImage.title}
