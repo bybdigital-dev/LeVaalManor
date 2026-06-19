@@ -14,7 +14,7 @@ Sparkles,
 Play,
 } from "lucide-react";
 
-import videoThumbnail from "@assets/images/31.jpg";
+import videoThumbnail from "@assets/images/unnamed.jpg";
 
 const propertyFeatures = [
 { icon: Bed, title: "4 Bedrooms", description: "Spacious bedrooms with premium linens and quality mattresses" },
