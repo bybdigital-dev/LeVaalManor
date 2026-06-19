@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
-import heroImage from "@assets/images/frontn1.jpeg";
+import heroImage from "@assets/images/unnamed.jpg";
 import type { Section } from "@/App";
 
 interface HomeSectionProps {
@@ -58,8 +58,8 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
           </h1>
 
           <p className="text-base md:text-lg text-white max-w-2xl mx-auto font-light leading-relaxed mb-6">
-            Experience refined luxury and tranquil elegance in an exclusive
-            golf estate setting
+            Experience refined luxury and tranquil elegance in an exclusive golf
+            estate setting
           </p>
 
           <Button
@@ -116,7 +116,7 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
                             key={i}
                             className="w-4 h-4 fill-accent text-accent"
                           />
-                        )
+                        ),
                       )}
                     </div>
 
